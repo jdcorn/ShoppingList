@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xdS-fh-POT">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Root View Controller-->
+        <scene sceneID="OxC-AY-rs0">
+            <objects>
+                <tableViewController id="LMb-h5-Ccu" customClass="ShoppingListTableViewController" customModule="ShoppingList" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="0kz-Y0-Lav">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="itemCell" rowHeight="66" id="9bU-eu-ajT" customClass="ItemTableViewCell" customModule="ShoppingList" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="66"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9bU-eu-ajT" id="g1O-PW-TF9">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="66"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="272" translatesAutoresizingMaskIntoConstraints="NO" id="CcT-hQ-nFL">
+                                            <rect key="frame" x="25" y="16" width="364" height="34"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Item)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kcT-aZ-doT">
+                                                    <rect key="frame" x="0.0" y="0.0" width="46" height="34"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7gB-K2-hnf">
+                                                    <rect key="frame" x="324" y="0.0" width="40" height="34"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="A3o-Ug-FKY"/>
+                                                        <constraint firstAttribute="width" secondItem="7gB-K2-hnf" secondAttribute="height" multiplier="1:1" id="ddT-BJ-1YG"/>
+                                                    </constraints>
+                                                    <state key="normal" image="emptycheck"/>
+                                                    <connections>
+                                                        <action selector="isCheckedButtonTapped:" destination="9bU-eu-ajT" eventType="touchUpInside" id="so8-8o-Zli"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="CcT-hQ-nFL" firstAttribute="leading" secondItem="g1O-PW-TF9" secondAttribute="leadingMargin" constant="5" id="NUt-Td-MkX"/>
+                                        <constraint firstItem="CcT-hQ-nFL" firstAttribute="top" secondItem="g1O-PW-TF9" secondAttribute="topMargin" constant="5" id="YSW-KI-Coc"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="CcT-hQ-nFL" secondAttribute="trailing" constant="5" id="cXm-oY-D8q"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="CcT-hQ-nFL" secondAttribute="bottom" constant="5" id="lpr-G4-pYm"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="ItemUILabel" destination="kcT-aZ-doT" id="w2Y-pl-lb5"/>
+                                    <outlet property="isCheckedButton" destination="7gB-K2-hnf" id="dcH-Ja-ztt"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="LMb-h5-Ccu" id="zIr-wE-0eD"/>
+                            <outlet property="delegate" destination="LMb-h5-Ccu" id="pNh-jQ-ZRq"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="USk-vN-Kgv">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ydq-Db-ay2">
+                            <connections>
+                                <action selector="newItemButtonTapped:" destination="LMb-h5-Ccu" id="Xaf-OQ-am8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dZ0-Kx-BkE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="69.565217391304358" y="34.821428571428569"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Wdh-u6-QHE">
+            <objects>
+                <navigationController id="xdS-fh-POT" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="IkQ-ju-icv">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="LMb-h5-Ccu" kind="relationship" relationship="rootViewController" id="0Km-1w-hKK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cRX-Im-CEl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-622" y="35"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="emptycheck" width="225" height="225"/>
+    </resources>
+</document>
